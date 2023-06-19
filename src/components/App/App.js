@@ -2,6 +2,11 @@ import './App.css';
 import Header from '../Header/Header';
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import Login from '../Login/Login';
+import Register from '../Register/Register';
+import PageNotFound from '../PageNotFound/PageNotFound';
+import Main from '../Main/Main';
+import Footer from '../Footer/Footer'
 
 function App() {
 	const [initialMovies, setInitialMovies] = useState([]);
@@ -9,11 +14,11 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
 
-  useEffect(() => {
-    moviesApi.getMovies().then((movies) => {
-      setInitialMovies(movies);
-    });
-  }, []);
+  //useEffect(() => {
+    //moviesApi.getMovies().then((movies) => {
+      //setInitialMovies(movies);
+    //});
+  //}, []);
 
   function handleSaveMovie() {
     setIsMovieSaved(!isMovieSaved);
@@ -37,11 +42,16 @@ function App() {
 			onBurgerMenuClose={handleClosrBurgerMenu}>
 			</Header>
 			<Routes>
-          <Route
+			<Route
             path='/'
             element={<Main isBurgerMenuOpen={isBurgerMenuOpen} onBurgerMenuOpen={handleOpenBurgerMenu} />}
           ></Route>
+
+			<Route path='/signin' element={<Login />}></Route>
+          <Route path='/signup' element={<Register />}></Route>
+          <Route path='*' element={<PageNotFound />}></Route>
 			 </Routes>
+			 <Footer />
 		</div>
     </div>
   );

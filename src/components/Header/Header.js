@@ -8,6 +8,7 @@ import BurgerMenuButton from '../BurgerMenuButton/BurgerMenuButton';
 function Header({ isLoggedIn, isBurgerMenuOpen, onBurgerMenuOpen, onBurgerMenuClose }) {
   const { pathname } = useLocation();
   const mainPath = pathname === '/';
+
   return (
     <header className='header'>
       <Routes>
@@ -16,10 +17,8 @@ function Header({ isLoggedIn, isBurgerMenuOpen, onBurgerMenuOpen, onBurgerMenuCl
             path={path}
             element={
               <div
-                className={`header__content ${mainPath && 'header__content_place_main'} ${
-                  pathname === '/movies' && 'header__content_place_movies'
-                }`}
-              >
+                className={`header__content ${mainPath && 'header__content_place_main'} ${pathname === '/movies' && 'header__content_place_movies'
+                }`} >
                 <Logo />
                 <Navigation isLoggedIn={isLoggedIn}/>
                 <BurgerMenuButton isLoggedIn={isLoggedIn} onBurgerMenuOpen={onBurgerMenuOpen} />
