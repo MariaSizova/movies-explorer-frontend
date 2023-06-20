@@ -7,33 +7,36 @@ import BurgerMenuButton from '../BurgerMenuButton/BurgerMenuButton';
 
 function Header({ isLoggedIn, isBurgerMenuOpen, onBurgerMenuOpen, onBurgerMenuClose }) {
   const { pathname } = useLocation();
-  const mainPath = pathname === '/';
+  const paths = ['/', '/movies', '/saved-movies', '/profile'];
+  const pathMain = pathname === '/';
+  const pathsWithMovies = pathname === '/movies' || pathname === '/saved-movies';
+  const headerContentClassName = `header__content ${isLoggedIn && 'header__content_user_logged-in'}    
+  ${pathMain && 'header__content_place_main'} 
+  ${pathsWithMovies && 'header__content_place_movies'}`;
 
   return (
-    <header className='header'>
-      <Routes>
-        {['/', '/movies', 'saved-movies', '/profile'].map((path) => (
-          <Route
-            path={path}
-            element={
-              <div
-                className={`header__content ${mainPath && 'header__content_place_main'} ${pathname === '/movies' && 'header__content_place_movies'
-                }`} >
-                <Logo />
-                <Navigation isLoggedIn={isLoggedIn}/>
-                <BurgerMenuButton isLoggedIn={isLoggedIn} onBurgerMenuOpen={onBurgerMenuOpen} />
-                <BurgerMenu
-                  isOpen={isBurgerMenuOpen}
-                  onBurgerMenuOpen={onBurgerMenuOpen}
-                  onBurgerMenuClose={onBurgerMenuClose}
-                />
-              </div>
-            }
-          />
-        ))}
-      </Routes>
-    </header>
-  );
+	<header className='header'>
+	  <Routes>
+		 {paths.map((path) => (
+			<Route
+			  path={path}
+			  element={
+				 <div className={headerContentClassName}>
+					<Logo />
+					<Navigation isLoggedIn={isLoggedIn} />
+					<BurgerMenuButton isLoggedIn={isLoggedIn} onBurgerMenuOpen={onBurgerMenuOpen} />
+					<BurgerMenu
+					  isOpen={isBurgerMenuOpen}
+					  onBurgerMenuOpen={onBurgerMenuOpen}
+					  onBurgerMenuClose={onBurgerMenuClose}
+					/>
+				 </div>
+			  }
+			/>
+		 ))}
+	  </Routes>
+	</header>
+ );
 }
 
 export default Header

@@ -10,9 +10,23 @@ import Footer from '../Footer/Footer'
 
 function App() {
 	const [initialMovies, setInitialMovies] = useState([]);
-  const [isMovieSaved, setIsMovieSaved] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
+	const [isMovieSaved, setIsMovieSaved] = useState(false);
+	const [isLoggedIn, setIsLoggedIn] = useState(true);
+	const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
+	const [user, setUser] = useState({ name: 'Виталий', email: 'pochta@yandex.ru' });
+
+  useEffect(() => {
+	function handleAutoCloseMenu() {
+	  window.onresize = () => {
+		 setIsBurgerMenuOpen(false);
+	  };
+	}
+
+	if (isBurgerMenuOpen) {
+	  window.addEventListener('resize', handleAutoCloseMenu);
+	  return () => window.removeEventListener('resize', handleAutoCloseMenu);
+	}
+ }, [isBurgerMenuOpen]);
 
   //useEffect(() => {
     //moviesApi.getMovies().then((movies) => {
