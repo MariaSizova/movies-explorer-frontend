@@ -7,7 +7,6 @@
 }
 
 .about-me__info {
-  border-top: 1px solid #DADADA;
   display: flex;
   justify-content: space-between;
 }
