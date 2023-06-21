@@ -15,28 +15,25 @@ function Header({ isLoggedIn, isBurgerMenuOpen, onBurgerMenuOpen, onBurgerMenuCl
   ${pathsWithMovies && 'header__content_place_movies'}`;
 
   return (
-	<header className='header'>
-	  <Routes>
-		 {paths.map((path) => (
-			<Route
-			  path={path}
-			  element={
-				 <div className={headerContentClassName}>
-					<Logo />
-					<Navigation isLoggedIn={isLoggedIn} />
-					<BurgerMenuButton isLoggedIn={isLoggedIn} onBurgerMenuOpen={onBurgerMenuOpen} />
-					<BurgerMenu
-					  isOpen={isBurgerMenuOpen}
-					  onBurgerMenuOpen={onBurgerMenuOpen}
-					  onBurgerMenuClose={onBurgerMenuClose}
-					/>
-				 </div>
-			  }
-			/>
-		 ))}
-	  </Routes>
-	</header>
- );
+    <header className='header'>
+      <Routes>
+        {paths.map((path) => (
+          <Route
+            path={path}
+            key={Math.random()}
+            element={
+              <div className={headerContentClassName}>
+                <Logo />
+                <Navigation isLoggedIn={isLoggedIn} />
+                <BurgerMenuButton isLoggedIn={isLoggedIn} onBurgerMenuOpen={onBurgerMenuOpen} />
+                <BurgerMenu isOpen={isBurgerMenuOpen} onClose={onBurgerMenuClose} />
+              </div>
+            }
+          />
+        ))}
+      </Routes>
+    </header>
+  );
 }
 
-export default Header
+export default Header;

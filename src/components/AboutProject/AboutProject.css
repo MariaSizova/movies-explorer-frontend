@@ -7,7 +7,11 @@
 }
 
 .about-project__descriptions {
-
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+  margin-bottom: 0;
 }
 
 .about-project__descriptions-item {
@@ -15,26 +19,28 @@
 }
 
 .about-project__descriptions-title {
-
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+  max-width: 550px;
 }
 
 .about-project__descriptions-text {
-
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  max-width: 550px;
 }
 
 .about-project__schedule {
-
+  display: flex;
+  list-style-type: none;
 }
 
 .about-project__schedule-item {
-
-}
-
-.about-project__schedule-title {
-
-}
-
-.about-project__schedule-text {
 
 }
 
@@ -42,6 +48,32 @@
 
 }
 
+.about-project__schedule-title {
+  width: 228px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  border: 1px solid #3DDC84;
+  background: #3DDC84;
+  padding: 9px 14px;
+  color: #000000;
+}
+
+.about-project__schedule-title_type_long {
+  max-width: 912px;
+  border: 1px solid #303030;
+  background: #303030;
+  color: #FFFFFF;
+  padding: 9px 356px;
+}
+
 .about-project__schedule-text {
-  
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #8B8B8B;
 }

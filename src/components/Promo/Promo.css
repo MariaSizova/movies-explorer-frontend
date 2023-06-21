@@ -1,16 +1,15 @@
 .promo {
   background-color: #272727;
-  margin: 0 auto;
-  font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  margin: 160px auto 0;
 }
 
 .promo__content {
-  margin: 160px auto;
-
+  background-color: #272727;
 }
 
 .promo__title {
   margin: 0 auto;
+  max-width: 730px;
   font-style: normal;
   font-weight: 400;
   font-size: 50px;
@@ -18,7 +17,24 @@
   text-align: center;
 }
 
-.promo__decoration {
-  background-image: url('../../images/header_decoration.svg');
-  background-size: contain;
+.promo__list {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 151px;
+  margin-bottom: 30px;
+  padding: 0;
+}
+
+.promo__list-item{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  align-items: center;
+  border: 1px solid #303030;
+  background: #303030;
+  border-radius: 10px;
+  padding: 10px;
 }

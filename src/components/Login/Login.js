@@ -1,7 +1,7 @@
 import './Login.css';
 import AuthPage from '../AuthPage/AuthPage';
 
-const Login = () => {
+const Login = ({ onSubmit }) => {
   return (
     <AuthPage
       headerText='Рады видеть'
@@ -9,8 +9,9 @@ const Login = () => {
       paragraphText='Ещё не'
       url='/signup'
       linkText='Зарегистрироваться'
+      onSubmit={onSubmit}
     >
-      <label for='email' className='login__input-label'>
+      <label htmlFor='email' className='login__input-label'>
         E-mail
       </label>
       <input
@@ -20,13 +21,12 @@ const Login = () => {
         id='email'
         placeholder='E-mail'
         autoComplete='off'
-        minLength='2'
-        maxLength='30'
+        defaultValue='pochta@yandex.ru'
         required
       />
       <span className='login__error'></span>
 
-      <label for='password' className='login__input-label'>
+      <label htmlFor='password' className='login__input-label'>
         Пароль
       </label>
       <input
