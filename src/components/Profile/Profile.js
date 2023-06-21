@@ -32,7 +32,7 @@ function Profile({ isBurgerMenuOpen, onBurgerMenuOpen, user }) {
             required
             disabled={!isProfileEdit && true}
           />
-          <span className='profile__error'>a</span>
+          <span className='profile__error'></span>
         </label>
         <label htmlFor='' className='profile__input-label'>
           E-mail
@@ -46,7 +46,7 @@ function Profile({ isBurgerMenuOpen, onBurgerMenuOpen, user }) {
             required
             disabled={!isProfileEdit && true}
           />
-          <span className='profile__error'>a</span>
+          <span className='profile__error'></span>
         </label>
       </Form>
       {!isProfileEdit && (
@@ -54,7 +54,7 @@ function Profile({ isBurgerMenuOpen, onBurgerMenuOpen, user }) {
           <button className='profile__button' onClick={handleEditProfile}>
             Редактировать
           </button>
-          <button className='profile__button profile__button_type_logout'>Выйти</button>
+          <button className='profile__button profile__button_type_logout'>Выйти из аккаунта</button>
         </div>
       )}
     </main>

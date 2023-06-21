@@ -1,0 +1,71 @@
+.profile {
+
+}
+
+.profile__input-label {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  margin-bottom: 34px;
+  border-bottom: 1px solid #424242;
+  width: 410px;
+}
+
+.profile__input-label:last-of-type {
+  margin-bottom: 0;
+}
+
+.profile__input {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: right;
+  border: none;
+  background: black;
+  border-bottom: 1px solid #424242;
+  color: #FFFFFF;
+}
+
+.profile__input_type_e-mail {
+}
+
+.profile__error {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #ee3465;
+  height: 12px;
+}
+
+.profile__buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 220px;
+}
+
+.profile__button {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #FFFFFF;
+}
+
+.profile__button_type_logout {
+  color: #EE3465;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 70px;
+}
