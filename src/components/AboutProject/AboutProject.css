@@ -1,17 +1,20 @@
 .about-project {
+	margin: 110px auto 0;
 
 }
 
 .about-project__content {
-
+	padding: 0 70px;
 }
 
 .about-project__descriptions {
   list-style-type: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
+  gap: 40px;
   margin-top: 70px;
   margin-bottom: 0;
+  padding: 0;
 }
 
 .about-project__descriptions-item {
@@ -25,6 +28,7 @@
   line-height: 24px;
   letter-spacing: -0.04em;
   max-width: 550px;
+  margin: 0;
 }
 
 .about-project__descriptions-text {
@@ -33,14 +37,20 @@
   font-size: 14px;
   line-height: 20px;
   max-width: 550px;
+  margin: 0;
+  margin-top: 26px;
 }
 
 .about-project__schedule {
+  margin: 0;
+  padding: 0;
+  margin-top: 89px;
   display: flex;
   list-style-type: none;
 }
 
 .about-project__schedule-item {
+  margin-bottom: 110px;
 
 }
 
@@ -49,7 +59,7 @@
 }
 
 .about-project__schedule-title {
-  width: 228px;
+  width: 198px;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;

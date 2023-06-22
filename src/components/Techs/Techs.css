@@ -1,18 +1,23 @@
 .techs {
-
+  background-color: #272727;
+  display: flex;
+  flex-direction: column;
+  padding-top: 110px;
 }
 
 .techs__content {
+  padding: 0 70px;
 }
 
 .techs__title {
   margin: 90px auto 0;
+  width: 600px;
   font-style: normal;
   font-weight: 400;
   font-size: 50px;
   line-height: 58px;
+  letter-spacing: -2px;
   text-align: center;
-  letter-spacing: -0.04em;
 }
 
 .techs__subtitle {
@@ -45,5 +50,6 @@
   border: 1px solid #303030;
   border-radius: 10px;
   background-color: #303030;
-  padding: 21px;
+  padding: 21px 0 22px;
+  width: 90px;
 }
