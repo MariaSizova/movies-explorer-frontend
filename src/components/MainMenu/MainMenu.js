@@ -2,8 +2,8 @@ import './MainMenu.css';
 import { Link } from 'react-router-dom';
 
 function MainMenu() {
-  return(
-<ul className='main-menu'>
+  return (
+    <ul className='main-menu'>
       <li>
         <Link to='/signup' className='main-menu__link'>
           <button className='main-menu__button'>Регистрация</button>

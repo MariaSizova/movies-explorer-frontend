@@ -45,3 +45,23 @@
 .portfolio__arrow {
   rotate: -45deg;
 }
+
+@media screen and (max-width: 1024px) {
+
+  .portfolio__works-title {
+    margin-top: 91px;
+    font-size: 14px;
+  }
+
+  .portfolio__works {
+    margin-bottom: 90px;
+  }
+
+  .portfolio__work {
+    padding: 50px 0 19px;
+  }
+
+  .portfolio__work-link {
+    font-size: 28px;
+  }
+}

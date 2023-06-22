@@ -1,10 +1,9 @@
 .footer {
-	margin-top: 79px;
+  margin-top: 79px;
 }
 
 .footer__content {
-	padding: 0 70px;
-
+  padding: 0 70px;
 }
 
 .footer__title {
@@ -52,4 +51,12 @@
   line-height: 16px;
   color: #FFFFFF;
   text-decoration: none;
+}
+
+
+@media screen and (max-width: 1024px) {
+
+  .footer__content {
+    padding: 0 30px;
+  }
 }

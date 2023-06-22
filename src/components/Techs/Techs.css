@@ -53,3 +53,29 @@
   padding: 21px 0 22px;
   width: 90px;
 }
+
+@media screen and (max-width: 1024px) {
+
+  .techs {
+    padding-top: 90px;
+  }
+
+  .techs__content {
+    padding: 0 50px;
+  }
+  
+  .techs__title {
+    margin: 80px auto 0;
+  }
+
+  .techs__subtitle {
+    margin: 22px auto 0;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .techs__list {
+    margin-top: 83px;
+    margin-bottom: 90px;
+  }
+}
