@@ -79,3 +79,40 @@
     margin-bottom: 90px;
   }
 }
+
+@media screen and (max-width: 680px) {
+  .techs {
+    padding-top: 70px;
+  }
+
+  .techs__content {
+    padding: 0 14px;
+  }
+
+  .techs__title {
+    margin: 89px auto 0;
+    font-size: 30px;
+    letter-spacing: -1.2px;
+    width: 292px;
+  }
+
+  .techs__subtitle {
+    margin: 24px auto 0;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: -0.44px;
+  }
+
+  .techs__list {
+    margin-top: 50px;
+    margin-bottom: 70px;
+    flex-wrap: wrap;
+  }
+
+  .techs__list-item {
+    font-size: 12px;
+    letter-spacing: -0.48px;
+    padding: 21px 0 16px;
+    width: 84px;
+  }
+}

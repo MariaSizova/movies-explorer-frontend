@@ -16,7 +16,6 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
-  margin-bottom: 125px;
 }
 
 .portfolio__work {
@@ -49,13 +48,13 @@
 
 @media screen and (max-width: 1024px) {
 
-  .portfolio__works-title {
-    margin-top: 91px;
-    font-size: 14px;
+  .portfolio {
+    margin-bottom: 90px;
   }
 
-  .portfolio__works {
-    margin-bottom: 90px;
+  .portfolio__works-title {
+    margin-top: 91px;
+    font-size: 18px;
   }
 
   .portfolio__work {
@@ -64,5 +63,23 @@
 
   .portfolio__work-link {
     font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .portfolio__works-title {
+    margin-top: 70px;
+    margin-bottom: 40px;
+    font-size: 14px;
+  }
+
+  .portfolio__work {
+    padding: 40px 0 14px;
+  }
+
+  .portfolio__work-link {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.72px;
   }
 }
