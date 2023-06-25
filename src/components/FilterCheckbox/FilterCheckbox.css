@@ -1,9 +1,11 @@
 .filter-checkbox {
   display: flex;
+  justify-content: flex-end;
   margin: 26px 0 0;
-  padding-bottom: 43px;
+  margin-left: 26px;
   border-bottom: 1px solid rgba(170, 170, 170, 0.2);
-  width: 100%;
+  border: none;
+  padding-right: 30px;
 }
 
 .filter-checkbox__input-label {

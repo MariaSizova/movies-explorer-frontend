@@ -6,6 +6,7 @@ function SearchForm() {
     <section className='search-form'>
       <div className='search-form__content'>
         <form className='search-form__form'>
+		  <button className='search-form__icon'></button>
           <input
             className='search-form__input'
             type='text'
@@ -15,11 +16,10 @@ function SearchForm() {
             autoComplete='off'
             required
           />
-          <button className='search-form__submit-button' type='submit'>
-            Поиск
-          </button>
-        </form>
+          <button className='search-form__submit-button' type='submit'>&#62;</button>
+        
         <FilterCheckbox />
+		  </form>
       </div>
     </section>
   );

@@ -12,8 +12,10 @@ function MoviesCard({ movieCard, buttonType, isMovieSaved, onSaveMovie }) {
   return (
     <>
       <div className='moviescard'>
+			<div className='moviescard__description'>
         <h3 className='moviescard__title'>{movieCard.nameRU}</h3>
         <p className='moviescard__duration'>{getDurationFromMins(movieCard.duration)}</p>
+		  </div>
         <button
           className={`moviescard__button moviescard__button_type_${buttonType}  
           ${isMovieSaved && 'moviescard__button_active'}`}

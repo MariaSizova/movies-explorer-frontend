@@ -1,13 +1,27 @@
 .auth-title {
-  margin: 0 auto;
-  text-align: center;
+  margin: 14px auto 40px;
+  text-align: start;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 29px;
-  text-align: center;
 }
 
 .auth-title_place_profile {
   margin-bottom: 123px;
+  margin-top: 74px;
+}
+
+@media screen and (max-width: 1024px) {
+  .auth-title_place_profile {
+    margin-bottom: 96px;
+    margin-top: 236px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .auth-title_place_profile {
+    margin-bottom: 80px;
+    margin-top: 70px;
+  }
 }
