@@ -2,8 +2,8 @@
   font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
   width: 520px;
   height: 100%;
-  background-color: #fff;
-  color: palevioletred;
+  background-color: #202020;
+  color: #FFFFFF;
   padding: 22px 22px 90px;
   box-sizing: border-box;
   margin: 0 auto;
@@ -22,7 +22,7 @@
 .burger-menu__close-button {
   width: 22px;
   min-height: 22px;
-  background-color: palevioletred;
+  background-color: #202020;
   background-image: url('../../images/buregr-close-button.svg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -67,12 +67,12 @@
   font-size: 18px;
   line-height: 22px;
   text-decoration: none;
-  color: palegreen;
+  color: #FFFFFF;
 }
 
 .burger-menu__nav-link_active {
   padding-bottom: 4px;
-  border-bottom: 2px solid palevioletred;
+  border-bottom: 2px solid #FFFFFF;
 }
 
 @media screen and (max-width: 520px) {

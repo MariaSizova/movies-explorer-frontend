@@ -6,7 +6,7 @@ function SearchForm() {
     <section className='search-form'>
       <div className='search-form__content'>
         <form className='search-form__form'>
-		  <button className='search-form__icon'></button>
+          <button className='search-form__icon'></button>
           <input
             className='search-form__input'
             type='text'
@@ -17,9 +17,8 @@ function SearchForm() {
             required
           />
           <button className='search-form__submit-button' type='submit'>&#62;</button>
-        
+          </form>
         <FilterCheckbox />
-		  </form>
       </div>
     </section>
   );

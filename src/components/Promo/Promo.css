@@ -90,4 +90,10 @@
     margin-top: 212px;
     margin-bottom: 17px;
   }
+
+  .promo__list-item {
+    gap: 18px;
+    padding: 3px;
+  }
+
 }
