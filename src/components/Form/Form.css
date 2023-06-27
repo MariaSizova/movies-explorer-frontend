@@ -1,7 +1,6 @@
 .form {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
 }
 
 .form_type_profile {
@@ -20,9 +19,8 @@
   line-height: 17px;
   text-align: center;
   color: #ffffff;
-  margin: 0 0 16px;
+  margin: 122px 0 16px;
   transition: opacity 0.5s linear;
-
 }
 
 .form__submit-button_type_profile {
@@ -33,7 +31,6 @@
 .form__submit-button_disabled {
   background-color: #f8f8f8;
   color: #c2c2c2;
-  margin-top: 20px;
 }
 
 .form__submit-button:hover {
@@ -45,6 +42,13 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .form__submit-button {
+    margin: 132px 0 16px;
+  }
+}
+
+
 @media screen and (max-width: 544px) {
   .form {
     width: 260px;
@@ -55,6 +59,7 @@
   }
 
   .form__submit-button {
+    margin: 61px 0 16px;
     padding: 15px 68px 15px 67px;
     margin-bottom: 14px;
     font-size: 12px;

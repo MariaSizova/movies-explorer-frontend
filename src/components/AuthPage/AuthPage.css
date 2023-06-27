@@ -53,6 +53,10 @@
     align-items: center;
   }
 
+  .authpage__content {
+    text-align: center;
+  }
+
   .authpage__text {
     font-size: 12px;
     line-height: 15px;

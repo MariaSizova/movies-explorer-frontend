@@ -1,5 +1,5 @@
 .auth-title {
-  margin: 14px auto 40px;
+  margin: 40px auto 40px;
   text-align: start;
   font-style: normal;
   font-weight: 500;
@@ -20,6 +20,10 @@
 }
 
 @media screen and (max-width: 680px) {
+  .auth-title {
+    margin: 43px auto 80px;
+  }
+
   .auth-title_place_profile {
     margin-bottom: 80px;
     margin-top: 70px;
