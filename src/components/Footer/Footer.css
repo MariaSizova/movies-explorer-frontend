@@ -51,8 +51,13 @@
   line-height: 16px;
   color: #FFFFFF;
   text-decoration: none;
+  transition: 0.5s;
+  cursor: pointer;
 }
 
+.footer__nav-link:hover {
+	opacity: 0.8;
+}
 
 @media screen and (max-width: 1024px) {
   .footer__content {

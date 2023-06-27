@@ -47,6 +47,17 @@
   gap: 23.5px;
 }
 
+.promo__list_link {
+  text-decoration: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.promo__list_link:hover {
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 1024px) {
 
   .promo {
@@ -95,5 +106,4 @@
     gap: 18px;
     padding: 3px;
   }
-
 }

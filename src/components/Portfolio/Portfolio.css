@@ -40,6 +40,12 @@
   font-size: 30px;
   line-height: 50px;
   letter-spacing: -1.2px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.portfolio__work-link:hover {
+  opacity: 0.8;
 }
 
 .portfolio__arrow {
