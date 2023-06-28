@@ -151,5 +151,6 @@
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: column-reverse;
+    align-items: center;
   }
 }

@@ -4,7 +4,7 @@
 .profile__content {
   width: 410px;
   margin: 0 auto;
-  padding: 74px 0 70px;
+  padding: 31px 0 70px;
 }
 
 .profile__input-label {
@@ -17,6 +17,7 @@
   width: 100%;
   z-index: 1;
   margin-bottom: 34px;
+  padding-left: 19px;
 }
 
 .profile__input-label:last-of-type {
@@ -25,6 +26,7 @@
 
 .profile__input {
   padding: 0 0 17px;
+  padding-left: 2px;
   font-style: normal;
   font-weight: 500;
   font-size: 11px;
@@ -78,6 +80,7 @@
   align-items: center;
   gap: 16px;
   margin-top: 220px;
+  padding-left: 41px;
 }
 
 .profile__button {
@@ -103,9 +106,13 @@
   margin: 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
+  .profile {
+    padding: 0;
+  }
+
   .profile__content {
-    padding: 236px 0 269px;
+    padding: 0
   }
 
   .profile__buttons {
@@ -117,9 +124,9 @@
   }
 }
 
-@media screen and (max-width: 544px) {
+@media screen and (max-width: 540px) {
   .profile__content {
-    padding: 70px 0 40px;
+    padding: 0;
     box-sizing: border-box;
     width: 260px;
     height: calc(100vh - 74px);
@@ -128,7 +135,7 @@
   }
 
   .profile__buttons {
-    margin-top: auto; 
+    margin: 378px auto 40px; 
   }
 
   .profile__button {

@@ -9,13 +9,28 @@
 
 .auth-title_place_profile {
   margin-bottom: 123px;
-  margin-top: 74px;
+  text-align: center;
+  padding-left: 39px;
 }
 
 @media screen and (max-width: 1024px) {
+
+  .auth-title_place_profile {
+    margin-top: 0px;
+    padding-left: 3px;
+  }
+
+  .profile__input-label {
+    padding-left: 2px;
+  }
+
   .auth-title_place_profile {
     margin-bottom: 96px;
     margin-top: 236px;
+  }
+
+  .profile__buttons {
+    padding-left: 1px;
   }
 }
 

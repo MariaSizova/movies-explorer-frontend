@@ -77,6 +77,8 @@
   .techs__list {
     margin-top: 83px;
     margin-bottom: 90px;
+    align-items: center;
+    padding: 0;
   }
 }
 

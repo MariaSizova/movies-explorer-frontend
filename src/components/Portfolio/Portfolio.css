@@ -64,7 +64,7 @@
   }
 
   .portfolio__work {
-    padding: 50px 0 19px;
+    padding: 19px 0 19px;
   }
 
   .portfolio__work-link {
@@ -73,6 +73,10 @@
 }
 
 @media screen and (max-width: 680px) {
+  .portfolio {
+    margin-bottom: 70px;
+  }
+
   .portfolio__works-title {
     margin-top: 70px;
     margin-bottom: 40px;
@@ -80,7 +84,7 @@
   }
 
   .portfolio__work {
-    padding: 40px 0 14px;
+    padding: 24px 0 14px;
   }
 
   .portfolio__work-link {
