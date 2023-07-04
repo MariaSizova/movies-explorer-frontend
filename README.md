@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-ССылка на макет - https://www.figma.com/file/0yzwY6pjhpF7Inng366yub/Diploma-(Copy)?type=design&node-id=891%3A3857&t=TfGImZxsfOxMhBvx-1 
+Сcылка на макет - https://www.figma.com/file/0yzwY6pjhpF7Inng366yub/Diploma-(Copy)?type=design&node-id=891%3A3857&t=TfGImZxsfOxMhBvx-1 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

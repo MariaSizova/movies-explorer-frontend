@@ -37,8 +37,9 @@
   font-size: 10px;
   line-height: 12px;
   color: #ee3465;
-  margin-top: 8px;
+  margin-top: 5px;
   height: 12px;
+  margin-bottom: 15px;
 }
 
 .login__error:last-of-type {

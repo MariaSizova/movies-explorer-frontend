@@ -10,8 +10,9 @@ class MainApi {
       return res.json();
     }
 
-    // В случае если ошибка, то отклоняем промис
-    return Promise.reject(`Ошибка: ${res.status}`);
+    return res.json().then((err) => {
+      return Promise.reject(`Ошибка ${res.status}: ${err.message || err.error}`);
+    });
   }
 
   _request(endpoint, options) {
@@ -20,6 +21,7 @@ class MainApi {
 
   getUserInfo() {
     return this._request('/users/me', {
+      method: 'GET',
       credentials: this._credentials,
       headers: this._headers,
     });
@@ -39,11 +41,13 @@ class MainApi {
 
   getSavedMovies() {
     return this._request('/movies', {
+      method: 'GET',
       headers: this._headers,
+      credentials: this._credentials,
     });
   }
 
-  addNewMovie({
+  saveMovie({
     country,
     director,
     duration,
@@ -55,8 +59,7 @@ class MainApi {
     nameEN,
     thumbnail,
     movieId,
-  }) 
-  {
+  }) {
     return this._request('/movies', {
       method: 'POST',
       credentials: this._credentials,
@@ -115,15 +118,13 @@ class MainApi {
       method: 'GET',
       credentials: this._credentials,
       headers: this._headers,
-    })
-      .then((res) => res.json())
-      .then((data) => data);
+    });
   };
 }
 
 // Создаём экземпляр класса Api
 const mainApi = new MainApi({
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://api.argayash-movies-explo.nomoredomains.rocks',
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
