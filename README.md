@@ -1,10 +1,14 @@
 # Getting Started with Create React App
 
-IP - 158.160.44.191
-Бэкенд - http://api.diplom.marisizova.nomoredomains.rocks/
-Фронтенд - http://diplom.marisizova.nomoredomains.rocks/
+* Ссылка на pull requests - https://github.com/MariaSizova/movies-explorer-frontend/pull/2
 
-Сcылка на макет - https://www.figma.com/file/0yzwY6pjhpF7Inng366yub/Diploma-(Copy)?type=design&node-id=891%3A3857&t=TfGImZxsfOxMhBvx-1 
+* IP - 158.160.44.191
+
+* Бэкенд - http://api.diplom.marisizova.nomoredomains.rocks/
+
+* Фронтенд - http://diplom.marisizova.nomoredomains.rocks/
+
+* Сcылка на макет - https://www.figma.com/file/0yzwY6pjhpF7Inng366yub/Diploma-(Copy)?type=design&node-id=891%3A3857&t=TfGImZxsfOxMhBvx-1 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
