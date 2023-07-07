@@ -124,7 +124,7 @@ class MainApi {
 
 // Создаём экземпляр класса Api
 const mainApi = new MainApi({
-  baseUrl: 'http://api.diplom.marisizova.nomoredomains.rocks',
+  baseUrl: 'https://api.diplom.marisizova.nomoredomains.rocks',
     headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
