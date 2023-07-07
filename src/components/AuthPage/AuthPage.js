@@ -4,7 +4,23 @@ import Logo from '../Logo/Logo';
 import Form from '../Form/Form';
 import AuthTitle from '../AuthTitle/AuthTitle';
 
-function AuthPage({ headerText, buttonText, paragraphText, url, linkText, name, onSubmit, isLoading, loadingText, values, formValid, isRequestSuccessful, errorText, onCleanErrorText, children, }) {
+function AuthPage({
+  headerText,
+  buttonText,
+  paragraphText,
+  url,
+  linkText,
+  name,
+  onSubmit,
+  isLoading,
+  loadingText,
+  values,
+  formValid,
+  isRequestSuccessful,
+  errorText,
+  onCleanErrorText,
+  children,
+}) {
   return (
     <main className='authpage'>
       <div className='authpage__content'>

@@ -2,7 +2,7 @@ import AccountButton from '../AccountButton/AccountButton';
 import './LoggedInMenu.css';
 import { NavLink } from 'react-router-dom';
 
-function LoggedInMenu({ place }) {
+function LoggedInMenu({ place, onNavigateToProfile }) {
   const navLinkClassName = ({ isActive }) =>
     `logged-in-menu__link ${place === 'main' && 'logged-in-menu__link_place_main'} 
   ${isActive ? 'logged-in-menu__link_active' : ''}`;
@@ -18,7 +18,7 @@ function LoggedInMenu({ place }) {
         </NavLink>
       </li>
       <li className='logged-in-menu__item'>
-        <AccountButton />
+        <AccountButton onNavigateToProfile={onNavigateToProfile}/>
       </li>
     </ul>
   );

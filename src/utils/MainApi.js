@@ -4,7 +4,7 @@ class MainApi {
     this._headers = options.headers;
     this._credentials = options.credentials;
   }
-
+  
   _checkResponse(res) {
     if (res.ok) {
       return res.json();
@@ -79,7 +79,7 @@ class MainApi {
       }),
     });
   }
-
+  
   deleteMovie(movieId) {
     return this._request(`/movies/${movieId}`, {
       method: 'DELETE',
@@ -99,7 +99,6 @@ class MainApi {
   authorize = (email, password) => {
     return this._request(`/signin`, {
       method: 'POST',
-      credentials: this._credentials,
       headers: this._headers,
       body: JSON.stringify({ email, password }),
     });
@@ -113,18 +112,20 @@ class MainApi {
     });
   };
 
+
   getContent = () => {
     return this._request(`/users/me`, {
       method: 'GET',
       credentials: this._credentials,
       headers: this._headers,
     });
-  };
+	};
 }
+
 
 // Создаём экземпляр класса Api
 const mainApi = new MainApi({
-  baseUrl: 'https://api.diplom.marisizova.nomoredomains.rocks',
+	baseUrl: 'https://api.diploma-project.nomoredomains.rocks',
     headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',

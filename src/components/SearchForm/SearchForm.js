@@ -1,15 +1,24 @@
-import useForm from '../../hooks/useForm';
+import { useEffect, useState } from 'react';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import './SearchForm.css';
 
-function SearchForm({ onFindMovies, onChekIsCheckboxChecked, checked, onFilter, isLoading, userRequest }) {
-  const { values, errors, formValid, onChange } = useForm();
-  const submitButtonDisable = isLoading || !formValid;
+function SearchForm({ onSubmit, onChekIsCheckboxChecked, checked, onFilter, isLoading, moviesRequest }) {
+  const [userRequest, setUserRequest] = useState('');
+  const [errorText, setErrorText] = useState('');
+
+  useEffect(() => {
+    moviesRequest && setUserRequest(moviesRequest);
+  }, [moviesRequest]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onFindMovies(values.search);
+    userRequest ? onSubmit(userRequest) : setErrorText('Нужно ввести ключевое слово');
   };
+
+  const handleChange = (e) => {
+    setUserRequest(e.target.value);
+  };
+
 
   return (
     <section className='search-form'>
@@ -19,16 +28,16 @@ function SearchForm({ onFindMovies, onChekIsCheckboxChecked, checked, onFilter, 
           <input
             className='search-form__input'
             type='search'
-				value={values.search || userRequest || ''}
-				onChange={onChange}
+				value={userRequest || ''}
+				onChange={handleChange}
             name='search'
             id='search'
             placeholder='Фильм'
             autoComplete='off'
-            minLength='1'
+            disabled={isLoading}
             required
           />
-          <button className='search-form__submit-button' type='submit' disabled={submitButtonDisable}></button>
+          <button className='search-form__submit-button' type='submit' disabled={isLoading}></button>
           </form>
         <FilterCheckbox onChekIsCheckboxChecked={onChekIsCheckboxChecked} checked={checked} onFilter={onFilter}/>
       </div>
