@@ -124,8 +124,8 @@ class MainApi {
 
 // Создаём экземпляр класса Api
 const mainApi = new MainApi({
-  baseUrl: 'https://api.argayash-movies-explo.nomoredomains.rocks',
-  headers: {
+  baseUrl: 'http://api.diplom.marisizova.nomoredomains.rocks/',
+    headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
   },
