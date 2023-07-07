@@ -24,7 +24,7 @@ class MoviesApi {
   }
 }
 
- // Создаём экземпляр класса Api
+ // Создаём экземпляр класса Apiш
 const moviesApi = new MoviesApi({
   baseUrl: 'https://api.nomoreparties.co/beatfilm-movies',
   headers: {
