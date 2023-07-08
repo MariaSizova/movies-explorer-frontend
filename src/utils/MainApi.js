@@ -125,10 +125,10 @@ class MainApi {
 
 // Создаём экземпляр класса Api
 const mainApi = new MainApi({
-	baseUrl: 'https://api.diploma-project.nomoredomains.rocks',
+	baseUrl: 'https://api.argayash-movies-explo.nomoredomains.rocks',
     headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
+    Accept: 'application/json', 
+	 'Content-Type': 'application/json',
   },
   credentials: 'include', // теперь куки посылаются вместе с запросом
 });

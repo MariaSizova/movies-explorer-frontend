@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 function Movies({
   hasTheUserSearched,
   moviesCards,
-  onFindMovies,
+  onSubmit,
   onSaveMovie,
   onDeleteMovie,
   onFilter,
@@ -15,15 +15,18 @@ function Movies({
   onChekIsCheckboxChecked,
   checked,
   isMovieInSaved,
-  movieIdForDelete,
   savedMovies,
+  didTheUserSearch,
+  isRequestSuccessful,
 }) {
-  const [userRequest, setuserRequest] = useState('');
+  const [moviesRequest, setMoviesRequest] = useState('');
   const [isCheckBoxChecked, setIsCheckBoxChecked] = useState(false);
   const [foundMovies, setFoundMovies] = useState([]);
 
+  const userRequest = localStorage.getItem('userRequest');
+
   useEffect(() => {
-    setuserRequest(localStorage.getItem('userRequest'));
+    setMoviesRequest(localStorage.getItem('userRequest'));
     setIsCheckBoxChecked(localStorage.getItem('IsCheckBoxChecked'));
     setFoundMovies(JSON.parse(localStorage.getItem('foundMovies')));
   }, []);
@@ -31,23 +34,23 @@ function Movies({
   return (
     <main className='movies'>
       <SearchForm
-        onFindMovies={onFindMovies}
+        onSubmit={onSubmit}
         onChekIsCheckboxChecked={onChekIsCheckboxChecked}
         onFilter={onFilter}
         checked={isCheckBoxChecked}
-        userRequest={userRequest}
+        moviesRequest={moviesRequest}
       />
       {isLoading && <Preloader />}
       {!isLoading && hasTheUserSearched && (
         <MoviesCardList
-          moviesCards={moviesCards}
-          buttonType='save'
-          onSaveMovie={onSaveMovie}
-          onDeleteMovie={onDeleteMovie}
-          place='movies'
-          isMovieInSaved={isMovieInSaved}
-          movieIdForDelete={movieIdForDelete}
-          savedMovies={savedMovies}
+        moviesCards={moviesCards}
+        buttonType='save'
+        onSaveMovie={onSaveMovie}
+        onDeleteMovie={onDeleteMovie}
+        place='movies'
+        isMovieInSaved={isMovieInSaved}
+        savedMovies={savedMovies}
+        isRequestSuccessful={isRequestSuccessful}
         />
       )}
     </main>
