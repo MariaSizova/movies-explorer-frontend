@@ -1,14 +1,8 @@
-import { Route, Routes } from 'react-router-dom';
 import '../Footer/Footer.css';
 
 function Footer() {
   return (
     <footer className='footer'>
-      <Routes>
-        {['/', '/movies'].map((path) => (
-          <Route
-            path={path}
-            element={
               <div className='footer__content'>
                 <h4 className='footer__title'>Учебный проект Яндекс.Практикум х&nbsp;BeatFilm.</h4>
                 <div className='footer__container'>
@@ -39,10 +33,6 @@ function Footer() {
                   </nav>
                 </div>
               </div>
-            }
-          />
-        ))}
-      </Routes>
     </footer>
   );
 }
