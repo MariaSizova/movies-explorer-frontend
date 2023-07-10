@@ -34,15 +34,15 @@ function MoviesCard({ movieCard, buttonType, onSaveMovie, onDeleteMovie, place, 
   }
 
   useEffect(() => {
-    const savedFilm = savedMovies.find((savedFilm) => savedFilm?.movieId === movieCard.id);
+    const savedFilm = savedMovies && savedMovies.find((savedFilm) => savedFilm?.movieId === movieCard.id);
     setMovieIdForDelete(savedFilm?._id);
   }, [savedMovies, movieCard.id]);
 
   return (
-    <>
+    <div>
       <div className='moviescard'>
         <div className='moviescard__description'>
-        <h3 className='moviescard__title'>{movie.nameRU}</h3>
+        <h2 className='moviescard__title'>{movie.nameRU}</h2>
         <p className='moviescard__duration'>{handleGetDurationFromMins(movie.duration)}</p>
         </div>
         <button
@@ -55,7 +55,7 @@ function MoviesCard({ movieCard, buttonType, onSaveMovie, onDeleteMovie, place, 
       <a href={movieCard.trailerLink} target='_blank' rel='noreferrer'>
       <img className='moviescard__image' src={movie.image} alt={movie.nameRU} />
       </a>
-    </>
+      </div>
   );
 }
 

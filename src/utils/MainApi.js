@@ -4,7 +4,7 @@ class MainApi {
     this._headers = options.headers;
     this._credentials = options.credentials;
   }
-  
+
   _checkResponse(res) {
     if (res.ok) {
       return res.json();
@@ -14,6 +14,7 @@ class MainApi {
       return Promise.reject(`Ошибка ${res.status}: ${err.message || err.error}`);
     });
   }
+
 
   _request(endpoint, options) {
     return fetch(`${this._baseUrl}${endpoint}`, options).then(this._checkResponse);
@@ -79,7 +80,7 @@ class MainApi {
       }),
     });
   }
-  
+
   deleteMovie(movieId) {
     return this._request(`/movies/${movieId}`, {
       method: 'DELETE',
@@ -119,18 +120,18 @@ class MainApi {
       credentials: this._credentials,
       headers: this._headers,
     });
-	};
+  };
 }
 
-
-// Создаём экземпляр класса Api
+ // Создаём экземпляр класса Api
 const mainApi = new MainApi({
-	baseUrl: 'https://api.argayash-movies-explo.nomoredomains.rocks',
-    headers: {
-    Accept: 'application/json', 
-	 'Content-Type': 'application/json',
-  },
-  credentials: 'include', // теперь куки посылаются вместе с запросом
+	baseUrl: 'https://api.diplom.marisizova.nomoredomains.rocks',
+	//'https://api.argayash-movies-explo.nomoredomains.rocks',
+	headers: {
+		Accept: 'application/json',
+		'Content-Type': 'application/json',
+	},
+	credentials: 'include', // теперь куки посылаются вместе с запросом
 });
 
 export default mainApi;

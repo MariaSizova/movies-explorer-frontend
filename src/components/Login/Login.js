@@ -1,9 +1,19 @@
 import './Login.css';
 import useForm from '../../hooks/useForm';
 import AuthPage from '../AuthPage/AuthPage';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
-const Login = ({ name, onSignin, isRequestSuccessful, errorText, onCleanErrorText, isLoading }) => {
+const Login = ({ name, onSignin, isRequestSuccessful, errorText, onCleanErrorText, isLoading, isLoggedIn }) => {
   const { values, errors, formValid, onChange } = useForm();
+  const EMAIL_REGEXP =
+    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    isLoggedIn && navigate('/movies', { replace: true });
+  });
+
   return (
     <main className='login'>
       <AuthPage
@@ -26,7 +36,7 @@ const Login = ({ name, onSignin, isRequestSuccessful, errorText, onCleanErrorTex
           E-mail
         </label>
         <input
-          type='email'
+          type='text'
           className={`login__input ${errors.email && 'login__input_type_error'}`}
           value={values.email || ''}
           name='email'
@@ -34,6 +44,8 @@ const Login = ({ name, onSignin, isRequestSuccessful, errorText, onCleanErrorTex
           onChange={onChange}
           placeholder='E-mail'
           autoComplete='off'
+          pattern={EMAIL_REGEXP}
+          disabled={isLoading}
           required
         />
         <span className='login__error'>{errors.email}</span>
@@ -52,6 +64,7 @@ const Login = ({ name, onSignin, isRequestSuccessful, errorText, onCleanErrorTex
           minLength='8'
           maxLength='30'
           autoComplete='off'
+          disabled={isLoading}
           required
         />
         <span className='login__error login__error_type_lower'>{errors.password}</span>

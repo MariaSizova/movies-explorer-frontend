@@ -9,7 +9,7 @@ class MoviesApi {
       return res.json();
     }
 
-    // если ошибка, отклоняем промис
+// если ошибка, отклоняем промис
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 
