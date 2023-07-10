@@ -22,11 +22,9 @@ function AuthPage({
   children,
 }) {
   return (
-    <main className='authpage'>
-      <div className='authpage__content'>
-        <Logo />
-        <AuthTitle headerText={headerText} />
-      </div>
+    <section className='authpage'>
+      <Logo />
+      <AuthTitle headerText={headerText} />
       <Form
         buttonText={buttonText}
         type={name}
@@ -47,7 +45,7 @@ function AuthPage({
           {linkText}
         </Link>
       </div>
-    </main>
+    </section>
   );
 }
 
