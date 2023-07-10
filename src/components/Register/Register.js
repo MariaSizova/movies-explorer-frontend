@@ -6,8 +6,10 @@ import { useNavigate } from 'react-router-dom';
 
 const Register = ({ name, onSignup, isRequestSuccessful, errorText, onCleanErrorText, isLoading, isLoggedIn }) => {
   const { values, errors, formValid, onChange } = useForm();
-  const nameRegex = '[A-Za-zА-Яа-яЁё\\-\\s]{1,30}';
-  const emailRegex = '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$';
+  const nameRegex = '[\\w\\sA-яЁё]+';
+  //'[A-Za-zА-Яа-яЁё\\-\\s]{1,30}';
+  const emailRegex = '[a-z0-9._%+\\-]+@[a-z0-9.\\-]+\\.[a-z]{2,}';
+  //'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$';
 
   const title = 'имя должно держать латиницу, кириллицу, пробел или дефис';
 

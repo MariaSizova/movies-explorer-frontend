@@ -130,7 +130,7 @@ const mainApi = new MainApi({
 		Accept: 'application/json',
 		'Content-Type': 'application/json',
 	},
-	credentials: 'include', // теперь куки посылаются вместе с запросом
+	credentials: 'include', 
 });
 
 export default mainApi;
