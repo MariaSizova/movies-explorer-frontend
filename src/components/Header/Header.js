@@ -1,41 +1,17 @@
-import Logo from '../Logo/Logo';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
 import './Header.css';
+import logo from '../../images/logo.svg'
 import Navigation from '../Navigation/Navigation';
-import BurgerMenu from '../BurgerMenu/BurgerMenu';
-import BurgerMenuButton from '../BurgerMenuButton/BurgerMenuButton';
+import { Link } from 'react-router-dom';
 
-function Header({
-  isLoggedIn,
-  isBurgerMenuOpen,
-  onBurgerMenuOpen,
-  onBurgerMenuClose,
-  onNavigateToSignup,
-  onNavigateToSignin,
-  onNavigateToProfile,
-}) {
-  const { pathname } = useLocation();
-  const pathMain = pathname === '/';
-  const pathsWithMoviesAndProfile = pathname === '/movies' || pathname === '/saved-movies' || pathname === '/profile';
-  const headerContentClassName = `header__content ${isLoggedIn ? 'header__content_user_logged-in' : ''}    
-  ${pathMain ? 'header__content_place_main' : ''} 
-  ${pathsWithMoviesAndProfile ? 'header__content_place_movies' : ''}`;
+const Header = ({ handleOpenMenu, loggedIn}) => {
 
-  return (
-    <header className='header'>
-      <div className={headerContentClassName}>
-        <Logo />
-        <Navigation
-          isLoggedIn={isLoggedIn}
-          onNavigateToSignup={onNavigateToSignup}
-          onNavigateToSignin={onNavigateToSignin}
-          onNavigateToProfile={onNavigateToProfile}
-        />
-        <BurgerMenuButton isLoggedIn={isLoggedIn} onBurgerMenuOpen={onBurgerMenuOpen} />
-        <BurgerMenu isOpen={isBurgerMenuOpen} onClose={onBurgerMenuClose} onNavigateToProfile={onNavigateToProfile} />
-      </div>
-    </header>
-  );
-}
+    return (
+        <header className="header">
+            <Link to='/' className='header__link'><img className='header__logo' src={logo} alt="logo" /></Link>
+            <Navigation handleOpenMenu={handleOpenMenu} loggedIn={loggedIn}/>
+        </header>
+    )
+};
 
 export default Header;

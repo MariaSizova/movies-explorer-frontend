@@ -1,62 +1,58 @@
-import { useState, useEffect } from 'react';
+import React from "react";
 import './MoviesCard.css';
-import { useLocation } from 'react-router-dom';
+import addFavorites from '../../images/save9.svg';
+import addFavoritesActive from '../../images/save9d.svg';
+import deleteCard from '../../images/deleteCard.svg';
+import { MOVIE_URL } from "../../utils/constants";
 
-function MoviesCard({ movieCard, buttonType, onSaveMovie, onDeleteMovie, place, IsSaved, savedMovies }) {
-  const [isMovieSaved, setIsMovieSaved] = useState(IsSaved ? true : false);
-  const [movieIdForDelete, setMovieIdForDelete] = useState('');
+const MoviesCard = ({ image, nameRU, duration, addFilmToUser, country, director, year, description, trailerLink, movieId, nameEN, savedFilms, locationMovies, deleteUsersFilm }) => {
+    const isFavorite = locationMovies ? savedFilms.some(item => { return item.movieId === movieId }) : false;
+    const [id, setId] = React.useState('');
 
-  const { pathname } = useLocation();
-  const moviePath = pathname === '/movies';
+    React.useEffect(() => {
+        savedFilms.forEach(item => {
+            if (item.movieId === movieId) {
+                setId(item._id)
+            }
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-  const onClickOnMoviePath = isMovieSaved ? handleDeleteMovie : handleSaveMovie;
+    const toHoursAndMinutes = (time) => {
+        const minutes = time % 60;
+        const hours = Math.floor(time / 60);
+        return `${padTo2Digits(hours)}ч ${padTo2Digits(minutes)}м`;
+    };
+    const padTo2Digits = (num) => {
+        return num.toString().padStart(2, '0');
+    };
 
-  const movie = Object.assign({}, movieCard);
-  movie.image = Object.assign({}, movieCard.image);
-  movie.image = place === 'saved-movies' ? movieCard.image : `https://api.nomoreparties.co${movieCard.image.url}`;
-  movie.thumbnail = movieCard.thumbnail || `https://api.nomoreparties.co${movieCard.image.formats.thumbnail.url}`;
-  movie.movieId = movie.id;
-
-  function handleGetDurationFromMins(mins) {
-    const hours = Math.trunc(mins / 60);
-    const minutes = mins % 60;
-    return hours + 'ч ' + minutes + 'м';
-  }
-
-  function handleSaveMovie() {
-    onSaveMovie(movie);
-    setIsMovieSaved(true);
-  }
-
-  function handleDeleteMovie() {
-    onDeleteMovie(movieIdForDelete || movie._id);
-    setIsMovieSaved(false);
-  }
-
-  useEffect(() => {
-    const savedFilm = savedMovies && savedMovies.find((savedFilm) => savedFilm?.movieId === movieCard.id);
-    setMovieIdForDelete(savedFilm?._id);
-  }, [savedMovies, movieCard.id]);
-
-  return (
-    <div>
-      <div className='moviescard'>
-        <div className='moviescard__description'>
-        <h2 className='moviescard__title'>{movie.nameRU}</h2>
-        <p className='moviescard__duration'>{handleGetDurationFromMins(movie.duration)}</p>
+    const handlerCardButton = () => {
+        if (locationMovies && !isFavorite) {
+            addFilmToUser({ country: country, director: director, duration: duration, year: year, description: description, image: MOVIE_URL + image.url, trailerLink: trailerLink, thumbnail: MOVIE_URL + image.url, movieId: movieId, nameRU: nameRU, nameEN: nameEN })
+        } else if ((locationMovies && isFavorite) || !locationMovies) {
+            deleteUsersFilm(id)
+        }
+    };
+    return (
+        <div className="movies-card">
+            <div className="movies-card__container-info">
+                <div className="movies-card__container-text">
+                    <h3 className="movies-card__title">{nameRU}</h3>
+                    <p className="movies-card__time">{toHoursAndMinutes(duration)}</p>
+                </div>
+                <button className="movies-card__button"
+                    onClick={handlerCardButton}
+                >
+                    <img className="movies-card__button-image"
+                        src={locationMovies ? (isFavorite ? addFavoritesActive : addFavorites) : deleteCard} alt={locationMovies ? 'добавить' : 'удалить'} />
+                </button>
+            </div>
+            <a className="movies-card__trailer-link" href={trailerLink} target="__blank">
+                <img className="movies-card__image" src={locationMovies ? (MOVIE_URL + image.url) : image} alt={`Кард из фильма ${nameRU}`} />
+            </a>
         </div>
-        <button
-          className={`moviescard__button moviescard__button_type_${buttonType}  
-          ${isMovieSaved ? 'moviescard__button_active' : ''}`}
-          type='button'
-          onClick={moviePath ? onClickOnMoviePath : handleDeleteMovie}
-        ></button>
-      </div>
-      <a href={movieCard.trailerLink} target='_blank' rel='noreferrer'>
-      <img className='moviescard__image' src={movie.image} alt={movie.nameRU} />
-      </a>
-      </div>
-  );
-}
+    );
+};
 
 export default MoviesCard;

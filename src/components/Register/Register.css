@@ -1,74 +1,170 @@
 .register {
-  font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 396px;
+    width: 100%;
+    padding-top: 70px;
 }
 
-.register__input-label {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 12px;
-  color: #8B8B8B;
+.register__logo {
+    width: min-content;
+    height: 38px;
+    padding-right: calc(100% - 38px);
+    display: flex;
+    align-items: flex-start;
 }
 
-.register__input {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 16px;
-  background: black;
-  color: #FFFFFF;
-  border-radius: 8px;
-  border: none;
-  border-bottom: 1px solid #424242;
-  margin: 0;
-  padding-top: 6px;
-  padding-bottom: 5px;
-  margin-bottom: 0px;
+.register__form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 17px;
+    padding-bottom: 15px;
+    width: 100%;
 }
 
-.register__input:focus {
-  outline: 1px solid #465dff;
+.register__title {
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29px;
+    width: 100%;
+    margin: 0;
+    padding-top: 39px;
 }
 
-.register__input::placeholder {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 16px;
-  color: #a0a0a0;
+.register__form-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 24px;
+    position: relative;
 }
 
-.register__input_is_not-valid {
-  color: #ee3465;
+.register__form-container-label {
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    color: #A0A0A0;
 }
 
-.register__error {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 12px;
-  color: #ee3465;
-  margin-top: 5px;
-  height: 12px;
-  margin-bottom: 15px;
+.register__form-container-input {
+    padding: 0;
+    margin-top: 6px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #E8E8E8;
+    padding-bottom: 10px;
+    color: black;
 }
 
-.register__error:last-of-type {
-  margin-top: 10px;
+.register__form-container-input_red {
+    color: #EE3465;
+    border-bottom: 1px solid #EE3465;
 }
 
-@media screen and (max-width: 1024px) {
-  .register__input {
-    margin-bottom: 5px;
-  }
+.register__form-container-input:focus {
+    border-bottom: 1px solid #2BE080;
 }
 
-@media screen and (max-width: 544px) {
-  .register__input {
-    margin-bottom: 9px;
-  }
-  
-  .register__error:last-of-type {
-    margin-bottom: 157px;
-  }
+.register__form-container-error {
+    position: absolute;
+    left: 0;
+    bottom: -17px;
+    color: #EE3465;
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+
+}
+
+.register__form-button {
+    margin-top: 152px;
+    padding: 0;
+    width: 100%;
+    height: 45px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    text-align: center;
+    color: #fff;
+    background-color: #2BE080;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.register__form-button:disabled {
+    background-color: #A0A0A0;
+    cursor: default;
+}
+
+.register__nav-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.register__nav-text {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    color: #A0A0A0;
+    margin: 0;
+}
+
+.register__link {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    color: #2BE080;
+    padding-left: 6px;
+}
+
+@media screen and (max-width:767px) {
+    .register {
+        max-width: 260px;
+        padding-top: 56px;
+    }
+
+    .register__logo {
+        padding-right: 0;
+    }
+
+    .register__title {
+        text-align: center;
+        padding-top: 50px;
+    }
+
+    .register__form {
+        padding-top: 56px;
+        padding-bottom: 15px;
+    }
+
+    .register__form-button {
+        margin-top: 240px;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 15px;
+    }
+
+    .register__nav-text {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 15px;
+    }
+
+    .register__link {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 15px;
+    }
 }

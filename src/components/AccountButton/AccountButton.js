@@ -1,11 +1,11 @@
+import React from "react";
+import { Link } from "react-router-dom";
 import './AccountButton.css';
 
-function AccountButton({ onNavigateToProfile }) {
-  return (
-    <button className='account-button' type='button' onClick={onNavigateToProfile}>
-      Аккаунт
-    </button>
-  );
-}
+const AccountButton = ({ handleCloseMenu }) => {
+    return (
+        <Link to='/profile' className='account-button' onClick={handleCloseMenu}>Аккаунт</Link>
+)
+};
 
 export default AccountButton;

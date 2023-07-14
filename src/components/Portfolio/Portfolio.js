@@ -1,46 +1,29 @@
-import '../Portfolio/Portfolio.css';
+import React from "react";
+import './Portfolio.css';
+import imageLink from '../../images/link.svg';
 
-function Portfolio() {
-  return (
-    <div className='portfolio'>
-      <h4 className='portfolio__works-title'>Портфолио</h4>
-      <ul className='portfolio__works'>
-        <li className='portfolio__work'>
-          <a
-            href='https://mariasizova.github.io/how-to-learn/'
-            className='portfolio__work-link'
-            target='_blank'
-            rel='noreferrer'
-          >
-            Статичный сайт
-            <span className='portfolio__arrow'>&rarr;</span>
-          </a>
-        </li>
-        <li className='portfolio__work'>
-          <a
-            className='portfolio__work-link'
-            href='https://mariasizova.github.io/russian-travel/index.html'
-            target='_blank'
-            rel='noreferrer'
-          >
-            Адаптивный сайт
-            <span className='portfolio__arrow'>&rarr;</span>
-          </a>
-        </li>
-        <li className='portfolio__work'>
-          <a
-            className='portfolio__work-link'
-            href='https://mariasizova.github.io/express-mesto-gha/'
-            target='_blank'
-            rel='noreferrer'
-          >
-            Одностраничное приложение
-            <span className='portfolio__arrow'>&rarr;</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  );
-}
+const Portfolio = () => {
+    return (
+        <section className="portfolio">
+            <h5 className="portfolio__title">Портфолио</h5>
+            <div className="portfolio__container">
+                <div className="portfolio__item">
+                <a className="portfolio__link" href="https://shkundinmihail.github.io/how-to-learn/" target="_blank" rel="noreferrer"><p className="portfolio__item-text">Статичный сайт</p></a>
+                    <a className="portfolio__link" href="https://shkundinmihail.github.io/how-to-learn/" target="_blank" rel="noreferrer"><img className="portfolio__item-link" src={imageLink} alt="link" /></a>
+                </div>
+                <div className="portfolio__item">
+                <a className="portfolio__link" href="https://shkundinmihail.github.io/russian-travel/" target="_blank" rel="noreferrer"><p className="portfolio__item-text">Адаптивный сайт</p></a>
+                    <a className="portfolio__link" href="https://shkundinmihail.github.io/russian-travel/" target="_blank" rel="noreferrer"><img className="portfolio__item-link" src={imageLink} alt="link" /></a>
+                </div>
+
+                <div className="portfolio__item portfolio__item_not-line">
+                <a className="portfolio__link" href="https://shkundinmihail.github.io/mesto/" target="_blank" rel="noreferrer"><p className="portfolio__item-text">Одностраничное приложение</p></a>
+                    <a className="portfolio__link" href="https://shkundinmihail.github.io/mesto/" target="_blank" rel="noreferrer"> <img className="portfolio__item-link" src={imageLink} alt="link" /></a>
+                </div>
+
+            </div>
+        </section>
+    );
+};
 
 export default Portfolio;

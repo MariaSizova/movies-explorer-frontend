@@ -1,52 +1,97 @@
-import { useEffect, useState } from 'react';
-import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
-import './SearchForm.css';
-import { useLocation } from 'react-router-dom';
+import React from "react";
+import "./SearchForm.css";
+import searchIcon from "../../images/iconSearch.svg";
+import searchFormButton from "../../images/findsearch.svg";
 
-function SearchForm({ onSubmit, onChekIsCheckboxChecked, checked, onFilter, isLoading, moviesRequest }) {
-  const [userRequest, setUserRequest] = useState('');
-  const [errorText, setErrorText] = useState('');
+const SearchForm = ({
+  setSearchText,
+  searchText,
+  handleFilms,
+  shortFilmsCheckbox,
+  setShortFilmsCheckbox,
+}) => {
+  const [blurInput, setBlurInput] = React.useState(false);
+  const [focusInput, setFocusInput] = React.useState(false);
 
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    moviesRequest && setUserRequest(moviesRequest);
-  }, [moviesRequest]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    pathname !== '/movies' || userRequest ? onSubmit(userRequest) : setErrorText('Нужно ввести ключевое слово');
+  const handleShortChange = () => {
+    setShortFilmsCheckbox(shortFilmsCheckbox ? false : true);
+    localStorage.setItem("checkboxShortFilms", !shortFilmsCheckbox); //не понял где накосячил, в общем метод тыка
   };
 
-  const handleChange = (e) => {
-    setUserRequest(e.target.value);
+  const changeInput = (e) => {
+    setSearchText(e.target.value);
   };
-
 
   return (
-    <section className='search-form'>
-      <div className='search-form__content'>
-        <form className='search-form__form' name='search-form' onSubmit={handleSubmit} noValidate>
-          <button className='search-form__icon'></button>
-          <input
-          className='search-form__input'
-          type='search'
-          value={userRequest || ''}
-          name='search'
-          id='search'
-          onChange={handleChange}
-          placeholder='Фильм'
-          autoComplete='off'
-          disabled={isLoading}
+    <div className="search-form">
+      <form className="search-form__form">
+        {focusInput && (
+          <>
+            <div
+              className={
+                blurInput
+                  ? "search-form__form-input-blur"
+                  : "search-form__form-input-focus"
+              }
+            ></div>
+            <div
+              className={
+                blurInput
+                  ? "search-form__form-input-blur search-form__form-input-blur_top"
+                  : "search-form__form-input-focus search-form__form-input-focus_top"
+              }
+            ></div>
+          </>
+        )}
+        <img className="search-form__image" src={searchIcon} alt="iconSearch" />
+        <input
+          onFocus={() => {
+            setBlurInput(false);
+            setFocusInput(true);
+          }}
+          onBlur={() => {
+            setBlurInput(true);
+          }}
+          onChange={changeInput}
+          maxLength="200"
+          className="search-form__input"
+          type="text"
+          placeholder="Фильм"
           required
+          value={searchText ? searchText : ""}
+        />
+        <button
+          className="search-form__button"
+          type="submit"
+          onClick={(e) => {
+            e.preventDefault();
+            handleFilms();
+          }}
+          disabled={searchText === ""}
+        >
+          <img
+            className="search-form__button-image"
+            src={searchFormButton}
+            alt="findsearch"
           />
-          <button className='search-form__submit-button' type='submit' disabled={isLoading}></button>
-          </form>
-          <span className='search-form__error'>{errorText}</span>
-        <FilterCheckbox onChekIsCheckboxChecked={onChekIsCheckboxChecked} checked={checked} onFilter={onFilter}/>
+        </button>
+      </form>
+      <div className="search-form__dividing-line"></div>
+      <div className="search-form__shorts-container">
+        <label className="search-form__shorts-button">
+          <input
+            type="checkbox"
+            className="search-form__shorts-checkbox"
+            value={shortFilmsCheckbox}
+            checked={shortFilmsCheckbox}
+            onChange={handleShortChange}
+          />
+          <span className="search-form__shorts-slider" />
+        </label>
+        <p className="search-form__shorts-text">Короткометражки</p>
       </div>
-    </section>
+    </div>
   );
-}
+};
 
 export default SearchForm;

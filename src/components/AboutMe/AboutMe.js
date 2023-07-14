@@ -1,26 +1,24 @@
-import SectionTitle from "../SectionTitle/SectionTitle";
-import Portfolio from '../Portfolio/Portfolio';
-import photo from '../../images/about-me-photo.jpg';
+import React from 'react';
 import './AboutMe.css';
+import myPhoto from '../../images/myPhoto.jpg';
 
-function AboutMe() {
-  return(
-    <section id='about-me' className="about-me">
-      <div className="about-me__content">
-        <SectionTitle text='Студент' />
-        <article className="about-me__info">
-			<div className="about-me__information">
-          <h3 className="about-me__title">Мария</h3>
-          <p className="about-me__subtitle">Фронтенд-разработчик, 26 лет</p>
-          <p className="about-me__bio">Я живу в Москве, закончила бакалавриат в Высшей школе экономике, магистратуру в МГЮА им. Кутафина по направлению юриспруденция. Работаю в Банке Тинькофф налоговым консультантом, с 2023 года решила начать учиться во фронтенд-разработке.</p>
-          <a className="about-me__github-link" href="https://github.com/MariaSizova" target='_blank' rel='noreferrer'>Github</a>
-			 </div>
-          <img className="about-me__photo" src={photo} alt="Фото автора проекта" />
-        </article>
-        <Portfolio />
-      </div>
-    </section>
-  )
-}
+const AboutMe = () => {
+    return (
+        <section id='student' className="about-me" >
+            <h4 className='about-me__title'>Студент</h4>
+            <div className="about-me__content">
+                <div className="about-me__text-block">
+                    <p className="about-me__text-block-title">Михаил</p>
+                    <p className="about-me__text-block-subtitle">Фронтенд-разработчик, 33 года</p>
+                    <p className="about-me__text-block-text">Я родился и живу в Рославле, закончиваю факультет электроэнергетики БГАУ. У меня есть жена
+                        и сын. Я люблю слушать музыку, а ещё увлекаюсь тяжелой атлетикой. Недавно начал кодить. С 2015 года работал в компании «Россети». После того, как прошёл курс по веб-разработке и ушёл с постоянной работы.</p>
+                    <a className="about-me__text-block-link" href='https://github.com/ShkundinMihail' target='_blank' rel="noreferrer">Github</a>
+                </div>
+                <img className='about-me__image' src={myPhoto} alt='myPhoto' />
+            </div>
+        </section>
+
+    )
+};
 
 export default AboutMe;

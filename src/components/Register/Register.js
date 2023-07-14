@@ -1,96 +1,114 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './Register.css';
-import useForm from '../../hooks/useForm';
-import AuthPage from '../AuthPage/AuthPage';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import logo from '../../images/logo.svg';
+import { REGEX_EMAIL } from '../../utils/constants';
 
-const Register = ({ name, onSignup, isRequestSuccessful, errorText, onCleanErrorText, isLoading, isLoggedIn }) => {
-  const { values, errors, formValid, onChange } = useForm();
-  const nameRegex = '^[a-zA-Zа-яА-ЯёЁ\\s\\-]+$';
+const Register = ({ handleRegisterUser }) => {
+    const [userName, setUserName] = React.useState('');
+    const [userEmail, setUserEmail] = React.useState('');
+    const [userPassword, setUserPassword] = React.useState('');
+    const [userNameDirty, setUserNameDirty] = React.useState(false);
+    const [userEmailDirty, setUserEmailDirty] = React.useState(false);
+    const [userPasswordDirty, setUserPasswordDirty] = React.useState(false);
+    const [userNameError, setUserNameError] = React.useState('');
+    const [userEmailError, setUserEmailError] = React.useState('');
+    const [userPasswordError, setUserPasswordError] = React.useState('');
+    const changeName = (e) => {
+        setUserName(e.target.value)
+        if (e.target.value.length === 0) {
+            setUserNameError('Поле не должно быть пустым');
+            setUserNameDirty(true);
+        } else if (e.target.value.length < 2 || e.target.value.length > 40) {
+            setUserNameError('Имя должно быть от 2 до 40 символов');
+            setUserNameDirty(true);
+        } else {
+            setUserNameError('');
+            setUserNameDirty(false);
+        }
+    };
 
-  const navigate = useNavigate();
+    const changeEmail = (e) => {
+        setUserEmail(e.target.value)
+        if (e.target.value.length === 0) {
+            setUserEmailError('Поле не должно быть пустым');
+            setUserEmailDirty(true);
+        } else if (e.target.value.length > 40 || e.target.value.length < 6) {
+            setUserEmailError('Email должно быть от 6 до 40 символов');
+            setUserEmailDirty(true);
+        } else if (!REGEX_EMAIL.test(String(e.target.value).toLowerCase())) {
+            setUserEmailError('Некорректный email');
+            setUserEmailDirty(true);
+        } else {
+            setUserEmailError('');
+            setUserEmailDirty(false);
+        }
+    };
+    const changePassword = (e) => {
+        setUserPassword(e.target.value)
+        if (e.target.value.length === 0) {
+            setUserPasswordError('Поле не должно быть пустым');
+            setUserPasswordDirty(true);
+        } else if (e.target.value.length > 40 || e.target.value.length < 8) {
+            setUserPasswordError('Пароль должно быть от 8 до 40 символов');
+            setUserPasswordDirty(true);
+        } else {
+            setUserPasswordError('');
+            setUserPasswordDirty(false);
+        }
+    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        handleRegisterUser({
+            name: userName,
+            email: userEmail,
+            password: userPassword
+        });
+    };
+    return (
+        <section className='register'>
+            <Link to='/' className='register__logo'><img className='register__logo-img' src={logo} alt='лого' /></Link>
+            <h5 className='register__title'>Добро пожаловать!</h5>
+            <form className='register__form'>
+                <div className='register__form-container'>
+                    <label className='register__form-container-label'>Имя</label>
+                    <input
+                        onChange={changeName}
+                        className={userNameDirty ? 'register__form-container-input register__form-container-input_red' : 'register__form-container-input'}
+                        type='text'
+                        placeholder='Имя' />
+                    {userNameDirty && <span className='register__form-container-error'>{userNameError}</span>}
+                </div>
+                <div className='register__form-container'>
+                    <label className='register__form-container-label'>E-mail</label>
+                    <input
+                        onChange={changeEmail}
+                        className={userEmailDirty ? 'register__form-container-input register__form-container-input_red' : 'register__form-container-input'}
+                        type='email'
+                        placeholder='Email' />
+                    {userEmailDirty && <span className='register__form-container-error'>{userEmailError}</span>}
+                </div>
+                <div className='register__form-container'>
+                    <label className='register__form-container-label'>Пароль</label>
+                    <input
+                        onChange={changePassword}
+                        className={userPasswordDirty ? 'register__form-container-input register__form-container-input_red' : 'register__form-container-input'}
+                        type='password'
+                        placeholder='Пароль' />
+                    {userPasswordDirty && <span className='register__form-container-error'>{userPasswordError}</span>}
+                </div>
+                <button
+                    onClick={handleSubmit}
+                    disabled={(userNameDirty || userEmailDirty || userPasswordDirty || userName === '' || userEmail === '' || userPassword === '')}
+                    className='register__form-button'>Зарегистрироваться</button>
+            </form>
+            <div className='register__nav-container'>
+                <p className='register__nav-text'>Уже зарегистрированы?</p>
+                <Link to='/signin' className='register__link'>Войти</Link>
+            </div>
+        </section>
 
-  useEffect(() => {
-    isLoggedIn && navigate('/movies', { replace: true });
-  });
-
-  return (
-    <main className='register'>
-      <AuthPage
-        headerText='Добро пожаловать!'
-        buttonText='Зарегистрироваться'
-        paragraphText='Уже'
-        url='/signin'
-        linkText='Войти'
-        name={`${name}`}
-        onSubmit={onSignup}
-        isLoading={isLoading}
-        loadingText='Регистрация...'
-        values={values}
-        formValid={formValid}
-        isRequestSuccessful={isRequestSuccessful}
-        errorText={errorText}
-        onCleanErrorText={onCleanErrorText}
-      >
-        <label htmlFor='name' className='register__input-label'>
-          Имя
-        </label>
-        <input
-          className={`register__input ${errors.name && 'register__input_type_error'}`}
-          type='text'
-          value={values.name || ''}
-          onChange={onChange}
-          name='name'
-          id='name'
-          form='form'
-          placeholder='Имя'
-          minLength='2'
-          maxLength='30'
-          autoComplete='off'
-          pattern={nameRegex}
-          disabled={isLoading}
-          required
-        />
-        <span className='register__error'>{errors.name}</span>
-        <label htmlFor='email' className='register__input-label'>
-          E-mail
-        </label>
-        <input
-          type='email'
-          className={`register__input ${errors.email && 'register__input_type_error'}`}
-          value={values.email || ''}
-          onChange={onChange}
-          name='email'
-          id='email'
-          form='form'
-          placeholder='E-mail'
-          autoComplete='off'
-          disabled={isLoading}
-          required
-        />
-        <span className='register__error'>{errors.email}</span>
-        <label htmlFor='password' className='register__input-label'>
-          Пароль
-        </label>
-        <input
-          type='password'
-          value={values.password || ''}
-          onChange={onChange}
-          className={`register__input ${errors.password && 'register__input_type_error'}`}
-          name='password'
-          id='password'
-          form='form'
-          placeholder='Пароль'
-          autoComplete='off'
-          minLength='8'
-          maxLength='30'
-          disabled={isLoading}
-          required
-        />
-        <span className='register__error register__error_type-lower'>{errors.password}</span>
-      </AuthPage>
-    </main>
-  );
+    )
 };
 
 export default Register;

@@ -1,28 +1,68 @@
-import LoggedInMenu from '../LoggedInMenu/LoggedInMenu';
-import MainMenu from '../MainMenu/MainMenu';
-import './Navigation.css';
-import { useLocation } from 'react-router-dom';
+import React from "react";
+import "./Navigation.css";
+import burger from "../../images/icon__COLOR_icon-main.svg";
+import { Link } from "react-router-dom";
+import AccountButton from "../AccountButton/AccountButton";
+import useResize from "use-resize";
+import { SCREEN_WIDTH_800 } from "../../utils/constants";
 
-function Navigation({ isLoggedIn, onNavigateToSignup, onNavigateToSignin, onNavigateToProfile }) {
-  const { pathname } = useLocation();
-  const otherPaths = pathname === '/movies' || pathname === '/saved-movies' || pathname === '/profile';
-  const mainPath = pathname === '/';
+const Navigation = ({ handleOpenMenu, loggedIn }) => {
+  const windowWidth = useResize().width;
 
   return (
-    <nav className={`navigation ${otherPaths ? 'navigation_place_movies' : ''}`}>
-      {mainPath && (
-        <ul className='navigation__links'>
-          <li>{isLoggedIn && <LoggedInMenu place='main' onNavigateToProfile={onNavigateToProfile} />}</li>
-          <li>
-            {!isLoggedIn && (
-              <MainMenu onNavigateToSignup={onNavigateToSignup} onNavigateToSignin={onNavigateToSignin} />
-            )}
-          </li>
-        </ul>
+    <>
+      {" "}
+      {loggedIn && windowWidth >= SCREEN_WIDTH_800 ? (
+        <div className="nav-container-left">
+          <>
+            <Link
+              to="/movies"
+              className="nav-container-left__navlink nav-container-left__navlink_weight"
+            >
+              Фильмы
+            </Link>
+            <Link
+              to="/saved-movies"
+              className="nav-container-left__navlink nav-container-left__navlink_position"
+            >
+              Сохранённые фильмы
+            </Link>
+          </>
+        </div>
+      ) : (
+        ""
       )}
-      {otherPaths && <LoggedInMenu place='movies' onNavigateToProfile={onNavigateToProfile} />}
-    </nav>
+      <div className="nav-container-right">
+        {loggedIn ? (
+          <>
+            {windowWidth >= SCREEN_WIDTH_800 ? (
+              <AccountButton />
+            ) : (
+              <button
+                className="nav-container-right__burger"
+                onClick={handleOpenMenu}
+              >
+                <img
+                  className="nav-container-right__burger-img"
+                  src={burger}
+                  alt="burger"
+                />
+              </button>
+            )}
+          </>
+        ) : (
+          <>
+            <Link to="/signup" className="nav-container-right__register">
+              Регистрация
+            </Link>
+            <Link to="/signin" className="nav-container-right__login">
+              Войти
+            </Link>
+          </>
+        )}
+      </div>
+    </>
   );
-}
+};
 
 export default Navigation;
