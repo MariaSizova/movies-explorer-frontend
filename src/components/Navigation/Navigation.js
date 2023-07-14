@@ -46,6 +46,7 @@ const Navigation = ({ handleOpenMenu, loggedIn }) => {
                   className="nav-container-right__burger-img"
                   src={burger}
                   alt="burger"
+						
                 />
               </button>
             )}
