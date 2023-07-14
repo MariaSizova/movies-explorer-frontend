@@ -1,4 +1,5 @@
 .account-button {
+	font-style: normal;
     font-family: Inter;
     font-size: 14px;
     font-weight: 500;
@@ -6,15 +7,16 @@
     letter-spacing: 0px;
     text-align: center;
     text-decoration: none;
-    /* margin-left: 84px; */
     width: 100px;
     height: 32px;
-    background-color: #F9F9F9;
-    color: black;
+    background-color: #272727;
+    color: #FFFFFF;
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+	 cursor: pointer;
+	 transition: opacity 0.5s linear;
 }
 .account-button:hover {
     transition: 0.2s;

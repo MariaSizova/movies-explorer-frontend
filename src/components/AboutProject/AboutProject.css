@@ -86,15 +86,15 @@
 }
 
 .about-project__line-text_green {
-    background: #2BE080;
+    background: #3DDC84;
 }
 
 .about-project__line-text_gray {
-    background: #F2F2F2;
+    background: #303030;
 }
 
 .about-project__line-text_gray-text {
-    color: #A0A0A0;
+    color: #8B8B8B;
 }
 
 @media screen and (max-width: 1279px) {

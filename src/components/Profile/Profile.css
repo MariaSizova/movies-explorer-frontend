@@ -40,7 +40,7 @@
     justify-content: space-between;
     width: 100%;
     padding: 17px 0 16px 0;
-    border-bottom: 1px solid #E8E8E8;
+    border-bottom: 1px solid #fff;
     position: relative;
 }
 
@@ -59,9 +59,6 @@
 }
 
 .profile__form-value {
-    /* text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden; */
     max-width: 350px;
     width: 100%;
     font-family: Inter;
@@ -114,8 +111,7 @@
     text-decoration: none;
     width: 100px;
     height: 32px;
-    background-color: #F9F9F9;
-    color: black;
+    color: #fff;
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -146,7 +142,7 @@
     line-height: 16px;
     letter-spacing: 0px;
     text-align: center;
-    --color-button: #000;
+    --color-button: #fff;
     color: var(--color-button);
 }
 

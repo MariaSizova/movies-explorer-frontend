@@ -1,12 +1,10 @@
 .app {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    background: #fff;     
-  }
-
-  .app_light-gray {
-    background: #FDFDFD; 
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  background: black;
+  color: #FFF; 
+  font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif; 
+}
 
