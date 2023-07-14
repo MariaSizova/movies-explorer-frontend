@@ -2,7 +2,7 @@
 
 * Ссылка на pull requests - https://github.com/MariaSizova/movies-explorer-frontend/pull/2
 
-* IP - 158.160.107.188
+* IP - 158.160.114.189
 
 * Бэкенд - http://api.diplom.marisizova.nomoredomains.rocks/
 

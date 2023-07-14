@@ -40,8 +40,11 @@
     justify-content: space-between;
     width: 100%;
     padding: 17px 0 16px 0;
-    border-bottom: 1px solid #fff;
     position: relative;
+	 background: black;
+	 color: #FFFFFF;
+	 border: none;
+	 border-bottom: 1px solid #424242;
 }
 
 .profile__form-item_not-line {
@@ -68,8 +71,10 @@
     letter-spacing: 0px;
     text-align: right;
     margin: 0;
-    border-radius: 5px;
     border: none;
+	 background: black;
+	 color: #FFFFFF;
+	 border: none;
 }
 
 .profile__form-value_diasbled {

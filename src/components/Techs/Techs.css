@@ -1,5 +1,5 @@
 .techs {
-    background: #F5F5F5;
+    background: #272727;
     max-width: 1280px;
     width: 100%;
     display: flex;
@@ -58,7 +58,7 @@
     height: 60px;
     width: 90px;
     border-radius: 10px;
-    background: #E8E8E8;
+    background: #303030;
     display: flex;
     justify-content: center;
     align-items: center;
