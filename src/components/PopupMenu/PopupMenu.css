@@ -11,7 +11,7 @@
     position: fixed;
     visibility: hidden;
     opacity: 0;
-    --background-popup: rgba(0, 0, 0, 0.3);
+    --background-popup: black;
     transform: scale(1);
     transition: right .5s linear;
 }
@@ -20,7 +20,7 @@
     z-index: 3;
     visibility: visible;
     opacity: 1;
-    background-color: var(--background-popup);
+    background-color: pink;
 }
 
 .popup-menu__content {
@@ -59,7 +59,7 @@
 }
 
 .popup-menu__container-link {
-    color: black;
+    color: plum;
     text-decoration: none;
     font-family: Inter;
     font-size: 18px;
