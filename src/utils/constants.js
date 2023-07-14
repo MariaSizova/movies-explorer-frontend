@@ -1,8 +1,7 @@
 /* eslint-disable no-useless-escape */
 export const REGEX_EMAIL =
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-export const BASE_URL = "http://api.diplom.marisizova.nomoredomains.rocks";
-//export const BASE_URL = 'http://localhost:3005';
+export const BASE_URL = "https://api.diplom.marisizova.nomoredomains.rocks";
 export const MOVIE_URL = " https://api.nomoreparties.co";
 export const HEADERS = {
   Authorization: `Bearer ${localStorage.getItem("token")}`,
