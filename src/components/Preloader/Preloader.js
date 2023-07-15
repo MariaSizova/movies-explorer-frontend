@@ -1,17 +1,14 @@
-import React from 'react';
-import './Preloader.css';
-import { useLocation } from 'react-router-dom';
+import React from 'react'
+import './Preloader.css'
 
 const Preloader = () => {
-  const { pathname } = useLocation();
-
-  return (
-    <section className={`preloader ${pathname === '/' ? 'preloader_place_main' : ''}`}>
-      <div className='preloader__container'>
-        <span className={`preloader__round ${pathname === '/' ? 'preloader__round_place_main' : ''}`}></span>
-      </div>
-    </section>
-  );
+    return (
+        <div className="preloader">
+            <div className="preloader__container">
+                <span className="preloader__round"></span>
+            </div>
+        </div>
+    )
 };
 
-export default Preloader;
+export default Preloader
