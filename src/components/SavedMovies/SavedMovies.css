@@ -24,6 +24,7 @@
     text-align: center;
     margin: 80px 0 80px 0;
     cursor: pointer;
+	 color: #fff;
 }
 .saved-movies__info-text{
     font-family: Inter;
