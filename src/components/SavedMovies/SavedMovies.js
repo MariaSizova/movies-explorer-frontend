@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import "./SavedMovies.css";
 import SearchForm from "../SearchForm/SearchForm";
@@ -155,5 +154,5 @@ const SavedMovies = ({
     </section>
   );
 };
-//обычный форматер сломался ))))) Пришлось ставить Prettier
+
 export default SavedMovies;
