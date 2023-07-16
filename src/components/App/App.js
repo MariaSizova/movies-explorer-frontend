@@ -225,7 +225,7 @@ function App() {
     nameRU,
     nameEN,
   }) => {
-    //setPreloader(true);
+    setPreloader(true);
     createUserMovies({
       country,
       director,
@@ -255,7 +255,7 @@ function App() {
   };
 
   const deleteUsersFilm = (id) => {
-    //setPreloader(true);
+    setPreloader(true);
     deleteUserMovies(id)
       .then(() => {
         setSavedFilms(savedFilms.filter(({ _id }) => _id !== id));
