@@ -38,11 +38,11 @@ export const getUserInfo = () => {
         .then((res) => { return handleResponse(res) })
 };
 
-export const updateUserInfo = ({ name, email, password }) => {
+export const updateUserInfo = ({ name, email }) => {
     return fetch(`${BASE_URL}/users/me`, {
         method: 'PATCH',
         headers: HEADERS,
-        body: JSON.stringify({ name, email, password })
+        body: JSON.stringify({ name, email })
     })
         .then((res) => { return handleResponse(res) })
 };
