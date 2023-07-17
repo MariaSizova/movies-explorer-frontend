@@ -38,11 +38,11 @@ export const getUserInfo = () => {
         .then((res) => { return handleResponse(res) })
 };
 
-export const updateUserInfo = ({ name, email }) => {
+export const updateUserInfo = ({ name, email, password }) => {
     return fetch(`${BASE_URL}/users/me`, {
         method: 'PATCH',
-        headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}`, 'Content-Type': 'application/json'} ,
-        body: JSON.stringify({ name, email })
+        headers: HEADERS,
+        body: JSON.stringify({ name, email, password })
     })
         .then((res) => { return handleResponse(res) })
 };
