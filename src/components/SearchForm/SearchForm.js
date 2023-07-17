@@ -15,7 +15,7 @@ const SearchForm = ({
 
   const handleShortChange = () => {
     setShortFilmsCheckbox(shortFilmsCheckbox ? false : true);
-    localStorage.setItem("checkboxShortFilms", !shortFilmsCheckbox);
+    localStorage.setItem("checkboxShortFilms", !shortFilmsCheckbox); //не понял где накосячил, в общем метод тыка
   };
 
   const changeInput = (e) => {
