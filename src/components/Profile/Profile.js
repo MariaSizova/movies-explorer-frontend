@@ -54,7 +54,7 @@ const Profile = ({ handleUserUpdate, handleLogout }) => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+	e.preventDefault();
     handleUserUpdate({
       name: userName,
       email: userEmail,

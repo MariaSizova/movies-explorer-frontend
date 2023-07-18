@@ -41,7 +41,7 @@ export const getUserInfo = () => {
 export const updateUserInfo = ({ name, email }) => {
     return fetch(`${BASE_URL}/users/me`, {
         method: 'PATCH',
-        headers: HEADERS,
+        headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}`, 'Content-Type': 'application/json'} ,
         body: JSON.stringify({ name, email })
     })
         .then((res) => { return handleResponse(res) })

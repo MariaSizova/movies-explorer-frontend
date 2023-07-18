@@ -212,6 +212,7 @@ function App() {
         setPreloader(false);
       });
   };
+
   const addFilmToUser = ({
     country,
     director,
@@ -225,7 +226,7 @@ function App() {
     nameRU,
     nameEN,
   }) => {
-    //setPreloader(true);
+    setPreloader(true);
     createUserMovies({
       country,
       director,
@@ -249,13 +250,13 @@ function App() {
           setInfoToolTipVisible(false);
         }, 3000);
       })
-      //.finally(() => {
-        //setPreloader(false);
-      //});
+      .finally(() => {
+        setPreloader(false);
+      });
   };
 
   const deleteUsersFilm = (id) => {
-    //setPreloader(true);
+    setPreloader(true);
     deleteUserMovies(id)
       .then(() => {
         setSavedFilms(savedFilms.filter(({ _id }) => _id !== id));
@@ -267,9 +268,9 @@ function App() {
           setInfoToolTipVisible(false);
         }, 2000);
       })
-      //.finally(() => {
-        //setPreloader(false);
-      //});
+      .finally(() => {
+        setPreloader(false);
+      });
   };
 
   return (
