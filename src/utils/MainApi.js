@@ -58,7 +58,7 @@ export const getUserMovies = () => {
 export const createUserMovies = (film) => {
     return fetch(`${BASE_URL}/movies`, {
         method: 'POST',
-        headers: HEADERS,
+        headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}`, 'Content-Type': 'application/json'},
         body: JSON.stringify(film)
     })
         .then((res) => { return handleResponse(res) })
@@ -67,7 +67,7 @@ export const createUserMovies = (film) => {
 export const deleteUserMovies = (filmID) => {
     return fetch(`${BASE_URL}/movies/${filmID}`, {
         method: 'DELETE',
-        headers: HEADERS,
+        headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}`, 'Content-Type': 'application/json'},
     })
         .then((res => { return handleResponse(res) }))
 };
