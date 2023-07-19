@@ -200,7 +200,7 @@ function App() {
   };
   ////moviesBlock//////////////////////////////////////////////////////////////////////////////////////////////////////////
   const handleSavedFilms = () => {
-    //setPreloader(true);
+    setPreloader(true);
     getUserMovies()
       .then((res) => {
         setSavedFilms(res.movie.reverse());
@@ -209,7 +209,7 @@ function App() {
         setInfoTextSavedMovies(`Ошибка:${err}`);
       })
       .finally(() => {
-        //setPreloader(false);
+        setPreloader(false);
       });
   };
 
@@ -226,7 +226,7 @@ function App() {
     nameRU,
     nameEN,
   }) => {
-    //setPreloader(true);
+    setPreloader(true);
     createUserMovies({
       country,
       director,
@@ -251,12 +251,12 @@ function App() {
         }, 3000);
       })
       .finally(() => {
-        //setPreloader(false);
+        setPreloader(false);
       });
   };
 
   const deleteUsersFilm = (id) => {
-    //setPreloader(true);
+    setPreloader(true);
     deleteUserMovies(id)
       .then(() => {
         setSavedFilms(savedFilms.filter(({ _id }) => _id !== id));
@@ -269,7 +269,7 @@ function App() {
         }, 2000);
       })
       .finally(() => {
-        //setPreloader(false);
+        setPreloader(false);
       });
   };
 
